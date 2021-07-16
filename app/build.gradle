@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
 }
 
 android {
@@ -9,12 +12,17 @@ android {
 
     defaultConfig {
         applicationId "com.example.newsviewer"
+        multiDexEnabled true
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        androidExtensions {
+            experimental = true
+        }
     }
 
     buildTypes {
@@ -34,12 +42,52 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation androidKotlin.core
+    implementation androidKotlin.reflect
+    implementation androidKotlin.kotlinxSerializationRuntime
+
+    implementation androidx.core
+    implementation androidx.appCompat
+    implementation androidx.recyclerView
+    implementation androidx.cardView
+    implementation androidx.constraintLayout
+    implementation androidx.design
+    implementation androidx.lifecycle.viewmodel
+    implementation androidx.lifecycle.extensions
+
+    testImplementation test.jUnit
+    androidTestImplementation test.testRunner
+    androidTestImplementation test.espresso
+    testImplementation test.mockito.core
+    androidTestImplementation test.mockito.android
+    androidTestImplementation test.room
+
+    implementation retrofit.core
+    implementation retrofit.converters.kotlinxSerialization
+    implementation retrofit.converters.scalars
+
+    implementation rx.adapter
+    implementation rx.java
+    implementation rx.android
+
+    implementation glide.core
+    implementation glide.integration
+    kapt glide.kapt
+
+    implementation room.core
+    kapt room.kapt
+
+    implementation timber.core
+
+    implementation koin.core
+    implementation koin.scope
+    implementation koin.androidx
+    implementation koin.viewmodel
+
+    implementation coroutines.android
+    implementation coroutines.playServices
+    implementation coroutines.room
+    implementation coroutines.retrofit
+
+    implementation dexter.core
 }
