@@ -1,4 +1,4 @@
-package com.example.newsviewer
+package com.michaelcorral.newsviewer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

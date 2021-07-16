@@ -1,4 +1,4 @@
-package com.example.newsviewer
+package com.michaelcorral.newsviewer
 
 import org.junit.Test
 

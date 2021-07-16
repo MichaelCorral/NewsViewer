@@ -6,6 +6,10 @@ plugins {
     id 'kotlinx-serialization'
 }
 
+def secretsPropertiesFile = rootProject.file("secrets.properties")
+def secretsProperties = new Properties()
+secretsProperties.load(new FileInputStream(secretsPropertiesFile))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -20,15 +24,23 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        buildConfigField('String', "api_key", secretsProperties['api_key'])
+
         androidExtensions {
             experimental = true
         }
     }
 
     buildTypes {
+        debug {
+            buildConfigField('String', "news_base_api", news_base_api)
+
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', "news_base_api", news_base_api)
         }
     }
     compileOptions {
