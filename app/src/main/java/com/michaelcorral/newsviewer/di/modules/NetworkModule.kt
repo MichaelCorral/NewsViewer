@@ -6,7 +6,6 @@ import com.michaelcorral.newsviewer.BuildConfig.api_key
 import com.michaelcorral.newsviewer.api.services.NewsService
 import io.reactivex.schedulers.Schedulers
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -56,9 +55,8 @@ private fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
     }
     .build()
 
-private fun provideKotlinxSerializationConverterFactory(): Converter.Factory = Json(
-    JsonConfiguration(ignoreUnknownKeys = true, isLenient = true)
-).asConverterFactory(provideContentType())
+private fun provideKotlinxSerializationConverterFactory(): Converter.Factory
+= Json.asConverterFactory(provideContentType())
 
 private fun provideContentType(): MediaType = MediaType.get("application/json")
 
