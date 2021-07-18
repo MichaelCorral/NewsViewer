@@ -1,15 +1,19 @@
 package com.michaelcorral.newsviewer.utils.extensions
 
+import timber.log.Timber
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun String.dateInFormat(format: String): Date? {
+fun String.dateInFormat(format: String = "MM/dd/yyyy"): Date? {
     val dateFormatter = SimpleDateFormat(format, Locale.getDefault())
     var parsedDate: Date? = null
     try {
         parsedDate = dateFormatter.parse(this)
+        Timber.d("HELLO: $parsedDate")
+
     } catch (ignored: ParseException) {
+        Timber.d("HELLO: ERROR")
         ignored.printStackTrace()
     }
     return parsedDate

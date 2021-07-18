@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.michaelcorral.newsviewer.R
 import com.michaelcorral.newsviewer.api.models.Article
 import com.michaelcorral.newsviewer.base.MvvmActivity
+import com.michaelcorral.newsviewer.screens.newsdetails.NewsDetailsActivity
 import kotlinx.android.synthetic.main.activity_newslist.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class NewsListActivity : MvvmActivity() {
 
@@ -34,6 +34,10 @@ class NewsListActivity : MvvmActivity() {
     }
 
     private fun onArticleClick(article: Article) {
-        Timber.d("HELLO: ${article.title}")
+        redirectToNewsDetails(article)
+    }
+
+    private fun redirectToNewsDetails(article: Article) {
+        NewsDetailsActivity.start(this, article)
     }
 }
