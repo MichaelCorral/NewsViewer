@@ -7,6 +7,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.michaelcorral.newsviewer.R
 import com.michaelcorral.newsviewer.api.models.Article
 import com.michaelcorral.newsviewer.application.GlideApp
+import com.michaelcorral.newsviewer.base.BaseViewModel
 import com.michaelcorral.newsviewer.base.MvvmActivity
 import com.michaelcorral.newsviewer.utils.extensions.dateInFormat
 import kotlinx.android.synthetic.main.activity_news_details.*
@@ -28,6 +29,9 @@ class NewsDetailsActivity : MvvmActivity() {
     }
 
     override fun getActivityLayout() = R.layout.activity_news_details
+    override fun getActivityViewModel(): BaseViewModel? {
+       return null
+    }
 
     override fun onActivityReady(savedInstanceState: Bundle?, intent: Intent) {
         super.onActivityReady(savedInstanceState, intent)

@@ -7,15 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".screens.newslist.NewsListActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newsListRecyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingTop="@dimen/dp_8"
-        android:clipToPadding="false"
-        android:layout_marginTop="@dimen/dp_16"
+    <Spinner
+        android:id="@+id/newsListSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/dp_8"/>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/newsListSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newsListSpinner">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/newsListRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/dp_8"
+            android:clipToPadding="false"
+            android:layout_marginTop="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsListSpinner"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

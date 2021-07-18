@@ -17,7 +17,7 @@ abstract class MvvmActivity : AppCompatActivity() {
 
     protected abstract fun getActivityLayout(): Int
 
-    protected abstract fun getActivityViewModel(): BaseViewModel
+    protected abstract fun getActivityViewModel(): BaseViewModel?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +78,7 @@ abstract class MvvmActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        getActivityViewModel().dispose()
+        getActivityViewModel()?.dispose()
         Timber.i("onDestroy ${this::class.qualifiedName}")
     }
 }

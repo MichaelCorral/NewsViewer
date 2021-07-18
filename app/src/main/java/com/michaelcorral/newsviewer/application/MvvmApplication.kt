@@ -2,6 +2,7 @@ package com.michaelcorral.newsviewer.application
 
 import android.app.Application
 import com.michaelcorral.newsviewer.BuildConfig
+import com.michaelcorral.newsviewer.data.sharedpreferences.SharedPreferencesManager
 import com.michaelcorral.newsviewer.di.modules.networkModule
 import com.michaelcorral.newsviewer.di.modules.newsListModule
 import com.michaelcorral.newsviewer.di.modules.repositoryModule
@@ -36,6 +37,6 @@ class MvvmApplication : Application() {
     }
 
     private fun initializeSharedPreferences() {
-//        SharedPreferencesManager.initialize(this)
+        SharedPreferencesManager.initialize(this)
     }
 }

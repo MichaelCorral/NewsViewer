@@ -11,5 +11,9 @@
     <string name="news_details_published_date_template">PUBLISHED %s</string>
     <string name="error_template">Something Wrong Happened.</string>
 
+    <string-array name="source_countries">
+        <item>us</item>
+        <item>ca</item>
+    </string-array>
 
 </resources>

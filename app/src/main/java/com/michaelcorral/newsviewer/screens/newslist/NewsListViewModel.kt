@@ -15,9 +15,12 @@ class NewsListViewModel(private val repository: NewsRepository) : ViewModel(), B
 
     val articles = MutableLiveData<List<Article>>()
     val loadingState = MutableLiveData<LoadingState>()
+    var sourceCountrySpinnerPosition = MutableLiveData<Int>()
+    var refreshState = MutableLiveData<Boolean>()
 
     init {
         fetchNewsHeadlines()
+        getSourceCountry()
     }
 
     private fun fetchNewsHeadlines() {
@@ -31,6 +34,26 @@ class NewsListViewModel(private val repository: NewsRepository) : ViewModel(), B
                     articles.value = newsHeadlines.articles
                 }
         )
+    }
+
+    fun saveSourceCountry(country: String) {
+        repository.saveSourceCountry(country)
+        fetchNewsHeadlines()
+    }
+
+    private fun getSourceCountry() {
+        val country = repository.getSourceCountry()
+
+        if (country == "us" || country.isEmpty()) {
+            sourceCountrySpinnerPosition.value = 0
+        } else {
+            sourceCountrySpinnerPosition.value = 1
+        }
+    }
+
+    fun refreshArticles() {
+        fetchNewsHeadlines()
+        refreshState.value = false
     }
 
     override fun dispose() {
