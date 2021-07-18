@@ -23,14 +23,14 @@ private const val AUTHORIZATION: String = "Authorization"
 private const val BEARER: String = "Bearer"
 
 val networkModule = module {
-    single { provideItunesService(get()) }
+    single { provideNewsService(get()) }
     single { provideRetrofit(get(), get(), get()) }
     single { provideOkHttpClient() }
     single { provideKotlinxSerializationConverterFactory() }
     single { provideRxJava2CallAdapterFactory() }
 }
 
-private fun provideItunesService(retrofit: Retrofit): NewsService =
+private fun provideNewsService(retrofit: Retrofit): NewsService =
     retrofit.create(NewsService::class.java)
 
 private fun provideRetrofit(

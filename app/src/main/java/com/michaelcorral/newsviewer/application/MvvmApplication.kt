@@ -3,6 +3,8 @@ package com.michaelcorral.newsviewer.application
 import android.app.Application
 import com.michaelcorral.newsviewer.BuildConfig
 import com.michaelcorral.newsviewer.di.modules.networkModule
+import com.michaelcorral.newsviewer.di.modules.newsListModule
+import com.michaelcorral.newsviewer.di.modules.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -29,7 +31,7 @@ class MvvmApplication : Application() {
         startKoin {
             androidLogger(Level.NONE)
             androidContext(this@MvvmApplication)
-            modules(listOf(networkModule))
+            modules(listOf(networkModule, repositoryModule, newsListModule))
         }
     }
 

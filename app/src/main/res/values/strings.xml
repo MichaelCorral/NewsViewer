@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">NewsViewer</string>
 
+
     <string name="progressbar_layout_loading">Loading…</string>
+    <string name="all_label_placeholder">Lorem Ipsum</string>
+
+    <string name="article_item_content_description">Article Image</string>
+
+
 </resources>

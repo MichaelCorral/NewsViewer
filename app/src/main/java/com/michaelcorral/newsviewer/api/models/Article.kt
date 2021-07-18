@@ -12,23 +12,23 @@ data class Article(
     val source: Source,
 
     @SerialName("author")
-    val author: String,
+    val author: String? = "",
 
     @SerialName("title")
-    val title: String,
+    val title: String? = "",
 
     @SerialName("description")
-    val description: String,
+    val description: String? = "",
 
     @SerialName("url")
-    val url: String,
+    val url: String? = "",
 
     @SerialName("urlToImage")
-    val urlToImage: String,
+    val urlToImage: String? = "",
 
     @SerialName("publishedAt")
-    val publishedAt: String,
+    val publishedAt: String? = "",
 
     @SerialName("content")
-    val content: String
+    val content: String? = ""
 ) : Parcelable

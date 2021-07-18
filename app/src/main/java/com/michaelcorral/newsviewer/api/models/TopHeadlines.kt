@@ -10,10 +10,10 @@ import kotlinx.serialization.Serializable
 data class TopHeadlines(
 
     @SerialName("status")
-    val status: String,
+    val status: String? = "",
 
     @SerialName("totalResults")
-    val totalResults: Int,
+    val totalResults: Int? = 0,
 
     @SerialName("articles")
     val articles: List<Article>
