@@ -14,6 +14,7 @@ import com.michaelcorral.newsviewer.screens.newsdetails.NewsDetailsActivity
 import com.michaelcorral.newsviewer.utils.LoadingState
 import kotlinx.android.synthetic.main.activity_newslist.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.RuntimeException
 
 
 class NewsListActivity : MvvmActivity() {

@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 def secretsPropertiesFile = rootProject.file("secrets.properties")
@@ -15,7 +17,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.newsviewer"
+        applicationId "com.michaelcorral.newsviewer"
         multiDexEnabled true
         minSdkVersion 16
         targetSdkVersion 30
@@ -103,4 +105,8 @@ dependencies {
     implementation coroutines.retrofit
 
     implementation dexter.core
+
+    implementation platform(firebase.bom)
+    implementation firebase.analytics
+    implementation firebase.crashlytics
 }
