@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.michaelcorral.newsviewer.R
 import timber.log.Timber
@@ -15,6 +16,8 @@ abstract class MvvmActivity : AppCompatActivity() {
     private var alertDialog: AlertDialog? = null
 
     protected abstract fun getActivityLayout(): Int
+
+    protected abstract fun getActivityViewModel(): BaseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +78,7 @@ abstract class MvvmActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
+        getActivityViewModel().dispose()
         Timber.i("onDestroy ${this::class.qualifiedName}")
     }
 }

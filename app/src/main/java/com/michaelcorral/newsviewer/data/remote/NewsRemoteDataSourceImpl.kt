@@ -10,7 +10,7 @@ class NewsRemoteDataSourceImpl(private val newsService: NewsService) : NewsRemot
     //TOdo get sharedpref country
     override fun fetchNewsHeadlines(): Single<TopHeadlines> {
         return newsService
-            .getHeadlines("ca")
+            .getHeadlines("us")
             .observeOn(AndroidSchedulers.mainThread())
     }
 }

@@ -9,6 +9,7 @@
 
     <string name="news_details_author_template">BY %s</string>
     <string name="news_details_published_date_template">PUBLISHED %s</string>
+    <string name="error_template">Something Wrong Happened.</string>
 
 
 </resources>
